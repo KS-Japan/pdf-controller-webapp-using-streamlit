@@ -31,8 +31,9 @@ def page1(tmpdir, zipname):
     selected_item = st.radio('In what format will you save the file?',['pdf', 'zip'])
     try:
         if st.button('RUN'):
-            file_mk_rm(tmpdir, zipname)
-            split(input, tmpdir,selected_item, zipname)
+            with st.beta_expander('Download link'):
+                file_mk_rm(tmpdir, zipname)
+                split(input, tmpdir,selected_item, zipname)
     except AttributeError:
         st.error('The file is not selected.')
 
